@@ -1,13 +1,14 @@
 @import "../../app.scss";
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 .topbar {
-  z-index: 9;
-  width: 99vw;
+  z-index: 99;
+  width: 100vw;
   position: fixed;
   top: 0;
   right: 0;
   padding: 1rem;
   background: $primary;
+  // padding-left: 1rem;
 
   &Content {
     display: flex;
@@ -28,6 +29,8 @@
     flex: 1;
     display: flex;
     justify-content: center;
+    // background: blue;
+    margin-left: 1rem;
     span {
       font-family: "Righteous", cursive;
       font-size: 32px;
@@ -80,7 +83,7 @@
       height: 3px;
       width: 0;
       left: 0;
-      bottom: -5px;
+      bottom: -2px;
       margin: auto;
       transition: all 0.4s ease;
     }

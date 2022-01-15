@@ -16,14 +16,28 @@ export default function Toaster(props) {
       {show && (
         <motion.div
           className={props.type === "delete" ? "saved del" : "saved"}
-          initial={{ y: -10, opacity: 0 }}
+          initial={{ y: 10, opacity: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ y: -10, opacity: 0 }}
+          exit={{ y: 10, opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="savedContainer">
-            <CheckCircleOutlineIcon className="savedIcon" />
-            <span className="savedText">{props.msg}</span>
+          <div
+            className={
+              props.type === "delete" ? "savedContainer del" : "savedContainer"
+            }
+          >
+            <CheckCircleOutlineIcon
+              className={
+                props.type === "delete" ? "savedIcon del" : "savedIcon"
+              }
+            />
+            <span
+              className={
+                props.type === "delete" ? "savedText del" : "savedText"
+              }
+            >
+              {props.msg}
+            </span>
           </div>
         </motion.div>
       )}

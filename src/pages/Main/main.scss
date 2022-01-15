@@ -1,8 +1,12 @@
 .main {
-  margin-top: 80px;
+  margin-top: 60px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
+
+  &.full {
+    padding: 1rem 0;
+  }
 
   &Container {
     width: 100%;

@@ -35,7 +35,7 @@ export default function ItemEdit() {
 
   const { user } = useContext(AuthContext);
   const [saved, setSaved] = useState(false);
-  const [msg, setMsg] = useState("msg");
+  const [msg, setMsg] = useState("Saved book");
   const [del, setDel] = useState(false);
 
   const navigate = useNavigate();
@@ -176,216 +176,218 @@ export default function ItemEdit() {
   };
 
   return (
-    <Main>
-      <motion.div
-        className="editBook card"
-        variants={cards}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        <div className="editBookContainer">
-          {saved && <Toaster msg={msg} type={del ? "delete" : ""} />}
-          <motion.div className="editBookHeader" variants={cardChild1}>
-            <div className="editBookBack">
-              <Link
-                to={from}
-                style={{
-                  textDecoration: "none",
-                  color: "white",
-                  cursor: "pointer",
-                }}
-              >
-                <div className="editBookBackLink">
-                  <ArrowBackIosOutlined />
-                  <span className="editBookBackText">{back}</span>
-                </div>
-              </Link>
-            </div>
-
-            {/* FAB */}
-            <div className="fabBtn">
-              <div
-                className="fabBtnIconContainer"
-                onClick={() => setShow(!show)}
-              >
-                <Add className={show ? "fabBtnIcon open" : "fabBtnIcon"} />
+    <>
+      <Main>
+        <motion.div
+          className="editBook card"
+          variants={cards}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <div className="editBookContainer">
+            <motion.div className="editBookHeader" variants={cardChild1}>
+              <div className="editBookBack">
+                <Link
+                  to={from}
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div className="editBookBackLink">
+                    <ArrowBackIosOutlined />
+                    <span className="editBookBackText">{back}</span>
+                  </div>
+                </Link>
               </div>
 
-              <ul className="fabBtnMenu">
-                <motion.li
-                  variants={fabitem}
-                  initial="hidden"
-                  animate={show ? "visible" : "hidden"}
-                  style={{ originX: 0.9 }}
+              {/* FAB */}
+              <div className="fabBtn">
+                <div
+                  className="fabBtnIconContainer"
+                  onClick={() => setShow(!show)}
                 >
-                  <button
-                    className="fabBtnItemIconContainer"
-                    type="submit"
-                    form="myForm"
-                    style={{ border: "none" }}
-                    onClick={handleSubmit(startBook)}
+                  <Add className={show ? "fabBtnIcon open" : "fabBtnIcon"} />
+                </div>
+
+                <ul className="fabBtnMenu">
+                  <motion.li
+                    variants={fabitem}
+                    initial="hidden"
+                    animate={show ? "visible" : "hidden"}
+                    style={{ originX: 0.9 }}
                   >
-                    <PlayArrow className="fabBtnItemIcon" />
-                  </button>
-                  <span className="fabBtnItemText">Start Book</span>
-                </motion.li>
-                <motion.li
-                  variants={fabitem2}
-                  initial="hidden"
-                  animate={show ? "visible" : "hidden"}
-                  style={{ originX: 0.9 }}
-                >
-                  <div
-                    className="fabBtnItemIconContainer"
-                    type="submit"
-                    form="myForm"
-                    onClick={handleSubmit(completeBook)}
+                    <button
+                      className="fabBtnItemIconContainer"
+                      type="submit"
+                      form="myForm"
+                      style={{ border: "none" }}
+                      onClick={handleSubmit(startBook)}
+                    >
+                      <PlayArrow className="fabBtnItemIcon" />
+                    </button>
+                    <span className="fabBtnItemText">Start Book</span>
+                  </motion.li>
+                  <motion.li
+                    variants={fabitem2}
+                    initial="hidden"
+                    animate={show ? "visible" : "hidden"}
+                    style={{ originX: 0.9 }}
                   >
-                    <DoneAll className="fabBtnItemIcon" />
-                  </div>
-                  <span className="fabBtnItemText">Complete Book</span>
-                </motion.li>
-              </ul>
-            </div>
-          </motion.div>
+                    <div
+                      className="fabBtnItemIconContainer"
+                      type="submit"
+                      form="myForm"
+                      onClick={handleSubmit(completeBook)}
+                    >
+                      <DoneAll className="fabBtnItemIcon" />
+                    </div>
+                    <span className="fabBtnItemText">Complete Book</span>
+                  </motion.li>
+                </ul>
+              </div>
+            </motion.div>
 
-          <div className="editBookContent">
-            <div className="editBookContentWrapper">
-              <form
-                className="editBookForm"
-                id="myForm"
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                <motion.div
-                  className="editBookImgContainer"
-                  variants={cardChild3}
+            <div className="editBookContent">
+              <div className="editBookContentWrapper">
+                <form
+                  className="editBookForm"
+                  id="myForm"
+                  onSubmit={handleSubmit(onSubmit)}
                 >
-                  <div className="editBookImg">
-                    <img src={imgLink} alt="" />
-                  </div>
-
-                  <div className="editBookImgInput">
-                    <input {...register("img")} type="text" />
-                  </div>
-
-                  <div className="editBookOwnContainer topown">
-                    <label>Own Book</label>
-
-                    <Switch
-                      state={own}
-                      setState={setOwn}
-                      onChange={(e) => setOwn(e.target.value)}
-                    />
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="editBookDetailsContainer"
-                  variants={cardChild4}
-                >
-                  <div className="editBookTitle">
-                    <input {...register("title")} type="text" />
-                  </div>
-                  <div
-                    className={
-                      item === "comics"
-                        ? "editBookAuthor"
-                        : "editBookAuthor last"
-                    }
+                  <motion.div
+                    className="editBookImgContainer"
+                    variants={cardChild3}
                   >
-                    <input {...register("author")} type="text" />
-                  </div>
-                  {item === "comics" && (
-                    <div className="editBookAuthor last">
-                      <input
-                        {...register("series")}
-                        type="text"
-                        style={{ fontSize: "1.3rem", fontWeight: "400" }}
+                    <div className="editBookImg">
+                      <img src={imgLink} alt="" />
+                    </div>
+
+                    <div className="editBookImgInput">
+                      <input {...register("img")} type="text" />
+                    </div>
+
+                    <div className="editBookOwnContainer topown">
+                      <label>Own Book</label>
+
+                      <Switch
+                        state={own}
+                        setState={setOwn}
+                        onChange={(e) => setOwn(e.target.value)}
                       />
                     </div>
-                  )}
-                  <div className="editBookRow">
-                    <div className="editBookInput">
-                      <label>Subtitle</label>
-                      <input {...register("subtitle")} type="text" />
+                  </motion.div>
+
+                  <motion.div
+                    className="editBookDetailsContainer"
+                    variants={cardChild4}
+                  >
+                    <div className="editBookTitle">
+                      <input {...register("title")} type="text" />
                     </div>
-                    <div className="editBookInput">
-                      <label>Genre</label>
-                      <input {...register("genre")} type="text" />
+                    <div
+                      className={
+                        item === "comics"
+                          ? "editBookAuthor"
+                          : "editBookAuthor last"
+                      }
+                    >
+                      <input {...register("author")} type="text" />
                     </div>
-                  </div>
-                  <div className="editBookRow">
-                    <div className="editBookInput">
-                      <label>Pages</label>
-                      <input
-                        {...register("page", {
-                          valueAsNumber: true,
-                        })}
-                        type="number"
-                      />
+                    {item === "comics" && (
+                      <div className="editBookAuthor last">
+                        <input
+                          {...register("series")}
+                          type="text"
+                          style={{ fontSize: "1.3rem", fontWeight: "400" }}
+                        />
+                      </div>
+                    )}
+                    <div className="editBookRow">
+                      <div className="editBookInput">
+                        <label>Subtitle</label>
+                        <input {...register("subtitle")} type="text" />
+                      </div>
+                      <div className="editBookInput">
+                        <label>Genre</label>
+                        <input {...register("genre")} type="text" />
+                      </div>
                     </div>
-                    <div className="editBookInput">
-                      <label>Progress</label>
-                      <input
-                        {...register("progress", {
-                          valueAsNumber: true,
-                        })}
-                        type="number"
-                      />
+                    <div className="editBookRow">
+                      <div className="editBookInput">
+                        <label>Pages</label>
+                        <input
+                          {...register("page", {
+                            valueAsNumber: true,
+                          })}
+                          type="number"
+                        />
+                      </div>
+                      <div className="editBookInput">
+                        <label>Progress</label>
+                        <input
+                          {...register("progress", {
+                            valueAsNumber: true,
+                          })}
+                          type="number"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="editBookRow">
-                    <div className="editBookInput">
-                      <label>Start</label>
-                      <input {...register("start")} type="text" />
-                      {/* <Controller
+                    <div className="editBookRow">
+                      <div className="editBookInput">
+                        <label>Start</label>
+                        <input {...register("start")} type="text" />
+                        {/* <Controller
                         control={control}
                         name="start"
                         render={({ field }) => (
                           <DateTimePicker
-                            placeholderText="Select date"
-                            onChange={(date) => field.onChange(date)}
-                            selected={field.value}
+                          placeholderText="Select date"
+                          onChange={(date) => field.onChange(date)}
+                          selected={field.value}
                           />
-                        )}
-                      /> */}
+                          )}
+                        /> */}
+                      </div>
+                      <div className="editBookInput">
+                        <label>End</label>
+                        <input {...register("end")} type="text" />
+                      </div>
                     </div>
-                    <div className="editBookInput">
-                      <label>End</label>
-                      <input {...register("end")} type="text" />
-                    </div>
-                  </div>
-                  <div className="editBookOwnContainer bottomown">
-                    <label>Own Book</label>
+                    <div className="editBookOwnContainer bottomown">
+                      <label>Own Book</label>
 
-                    <Switch
-                      state={own}
-                      setState={setOwn}
-                      onChange={(e) => setOwn(e.target.value)}
-                    />
-                  </div>
-                  <div className="editBookBtnContainer">
-                    <div className="editBookBtns">
-                      <button className="saveBtn" form="myForm" type="submit">
-                        SAVE
-                      </button>
-                      <button
-                        className="deleteBtn"
-                        form="myForm"
-                        type="submit"
-                        onClick={handleSubmit(deleteBook)}
-                      >
-                        DELETE
-                      </button>
+                      <Switch
+                        state={own}
+                        setState={setOwn}
+                        onChange={(e) => setOwn(e.target.value)}
+                      />
                     </div>
-                  </div>
-                </motion.div>
-              </form>
+                    <div className="editBookBtnContainer">
+                      <div className="editBookBtns">
+                        <button className="saveBtn" form="myForm" type="submit">
+                          SAVE
+                        </button>
+                        <button
+                          className="deleteBtn"
+                          form="myForm"
+                          type="submit"
+                          onClick={handleSubmit(deleteBook)}
+                        >
+                          DELETE
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
-    </Main>
+        </motion.div>
+        {saved && <Toaster msg={msg} type={del ? "delete" : ""} />}
+      </Main>
+    </>
   );
 }

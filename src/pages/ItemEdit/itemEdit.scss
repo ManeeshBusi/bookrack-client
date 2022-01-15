@@ -296,6 +296,13 @@
 }
 
 @media (max-width: 600px) {
+  .fabBtn {
+    &ItemIconContainer {
+      & + span {
+        opacity: 1;
+      }
+    }
+  }
   .editBook {
     &Form {
       flex-direction: column;
