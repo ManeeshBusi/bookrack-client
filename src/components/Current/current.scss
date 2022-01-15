@@ -1,0 +1,55 @@
+@import "../../app.scss";
+
+.current {
+  margin-bottom: 3rem !important;
+  &Content {
+    padding: 3rem 3rem 0 3rem;
+    width: 96%;
+  }
+
+  span {
+    // font-size: 48px;
+    font-size: 2.5rem;
+    span {
+      color: $accent;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &Text {
+    // padding: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  &Progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      line-height: 60px;
+      font-size: 1.5rem;
+      // font-size: 24px;
+      text-decoration: underline;
+      justify-self: end;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        color: $accent;
+      }
+    }
+
+    .normal {
+      text-decoration: none;
+      cursor: auto;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,237 @@
+@import "../../app.scss";
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+.topbar {
+  z-index: 9;
+  width: 99vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  background: $primary;
+
+  &Content {
+    display: flex;
+    align-items: center;
+  }
+
+  &Btn {
+    display: none;
+    width: 50px;
+    height: 50px;
+    padding: 1rem 0;
+    position: relative;
+    cursor: pointer;
+    flex: 0.4;
+  }
+
+  &Logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    span {
+      font-family: "Righteous", cursive;
+      font-size: 32px;
+
+      span {
+        color: $accent;
+      }
+    }
+  }
+
+  &Nav {
+    flex: 10;
+
+    &Wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  &Close {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+
+  &NavItem {
+    margin: 0 1rem;
+    padding: 0.5rem;
+    position: relative;
+    color: grey;
+    cursor: pointer;
+
+    span {
+      font-size: 16px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      background: $accent;
+      height: 3px;
+      width: 0;
+      left: 0;
+      bottom: -5px;
+      margin: auto;
+      transition: all 0.4s ease;
+    }
+
+    &:hover {
+      color: white;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+
+  .active > .topbarNavItem {
+    color: white;
+    &:after {
+      width: 100%;
+    }
+  }
+
+  &Account {
+    flex: 1.18;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &Profile {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &Menu {
+    position: absolute;
+    top: 70px;
+    right: 1.2%;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.5s;
+    background: $accent;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    li {
+      list-style: none;
+      width: 100%;
+      padding: 10px 10px;
+      // border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.9);
+        color: black;
+      }
+
+      &.line {
+        width: 80%;
+        height: 1px;
+        background: white;
+        padding: 0;
+        border-radius: 50%;
+      }
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 12px;
+      background: $accent;
+      width: 30px;
+      height: 30px;
+      transform: rotate(45deg);
+      z-index: -22;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    &Nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 120;
+      display: none;
+
+      &.open {
+        display: block;
+      }
+    }
+
+    &NavWrapper {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &Close {
+      display: block;
+    }
+
+    &Btn {
+      display: block;
+    }
+
+    &Logo {
+      span {
+        font-size: 24px;
+      }
+    }
+
+    &Menu {
+      right: 1.2%;
+    }
+
+    &NavItem {
+      font-size: 18px;
+      margin-bottom: 2rem;
+      padding: 1rem;
+    }
+
+    &Account {
+      flex: 0.4;
+    }
+  }
+}

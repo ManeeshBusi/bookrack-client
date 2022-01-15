@@ -1,0 +1,122 @@
+@import "../../app.scss";
+
+@keyframes next-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes next-slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes back-slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes back-slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.slides {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+
+  .slide {
+    position: absolute;
+  }
+}
+.controls {
+  position: absolute;
+  z-index: 999;
+  height: 30px;
+  width: 30px;
+  background: rgba(0, 0, 0, 0.26);
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.1;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--back {
+    left: 25px;
+  }
+
+  &--next {
+    right: 25px;
+  }
+}
+
+.code-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  transition-property: $accent;
+  transition-duration: 0.5s;
+
+  .code {
+    white-space: pre-wrap;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    width: 100%;
+
+    &--last {
+      position: absolute;
+
+      &.slide-left {
+        animation-name: back-slide-out;
+      }
+
+      &.slide-right {
+        animation-name: next-slide-out;
+      }
+    }
+
+    &--active {
+      position: relative;
+
+      &.slide-left {
+        animation-name: back-slide-in;
+      }
+
+      &.slide-right {
+        animation-name: next-slide-in;
+      }
+    }
+  }
+}

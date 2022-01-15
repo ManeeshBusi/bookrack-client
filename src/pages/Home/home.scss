@@ -1,0 +1,38 @@
+@import "../../app.scss";
+
+.home {
+  margin-top: 80px;
+  padding-top: 0.1rem;
+}
+
+.hero {
+  width: 100%;
+  height: calc(100vh - 80px - 1rem);
+  background: $text;
+  display: flex;
+  &Left {
+    flex: 1;
+  }
+
+  &Right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+
+    &Right {
+      img {
+        width: 90%;
+      }
+    }
+  }
+}

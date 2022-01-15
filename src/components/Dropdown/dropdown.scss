@@ -1,0 +1,62 @@
+@import "../../app.scss";
+
+.dropdown {
+  width: 120px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: $card;
+  border: 2px solid $accent;
+  color: white;
+  font-size: 12px;
+  position: relative;
+
+  &.own {
+    width: 40px;
+    margin-right: 2rem;
+  }
+
+  &-header {
+    padding: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .header {
+      flex: 4;
+      text-align: center;
+    }
+
+    .btn {
+      flex: 1;
+    }
+  }
+
+  &-body {
+    padding: 3px;
+    border: 2px solid $accent;
+    width: 120px;
+    position: absolute;
+    background: $primary;
+    display: none;
+    border-radius: 10px;
+    z-index: 3;
+    &.open {
+      display: block;
+    }
+  }
+
+  &-item {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: $primary;
+    &:hover {
+      cursor: pointer;
+      background: rgb(255, 255, 255);
+      color: #333;
+    }
+  }
+}

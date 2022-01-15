@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import "../../app.scss";
+
+.progress {
+  font-family: "Montserrat", sans-serif;
+  background: $primary;
+  border-radius: 20px;
+  position: relative;
+  margin: 15px 0;
+  display: flex;
+
+  &-done {
+    background: $accent;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 0;
+    opacity: 0;
+    transition: 1s ease 0.3s;
+  }
+
+  &-text {
+    position: absolute;
+    top: -15px;
+    right: 50%;
+    margin: auto;
+    text-decoration: none !important;
+  }
+}

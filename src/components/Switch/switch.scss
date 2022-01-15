@@ -1,0 +1,50 @@
+@import "../../app.scss";
+
+.switch {
+  display: inline-block;
+  span {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    float: left;
+    input {
+      display: none;
+      &:checked + .slider {
+        background-color: $accent;
+      }
+      &:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      &:focus + .slidebar {
+        box-shadow: 0 0 1px $accent;
+      }
+    }
+  }
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: $card;
+  transition: 0.4s;
+  border-radius: 34px;
+  cursor: pointer;
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background: $text;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+}
