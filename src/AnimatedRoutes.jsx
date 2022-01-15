@@ -10,7 +10,7 @@ import ItemEdit from "./pages/ItemEdit/ItemEdit";
 import ItemMain from "./pages/ItemMain/ItemMain";
 import Home from "./pages/Home/Home";
 
-export default function AnimatedRoutes({ user }) {
+export default function AnimatedRoutes({ user, setTitle }) {
   const location = useLocation();
 
   return (
@@ -19,20 +19,31 @@ export default function AnimatedRoutes({ user }) {
         <Route
           exact
           path="/login"
-          element={!user ? <Login /> : <Navigate to="/" />}
+          element={!user ? <Login setTitle={setTitle} /> : <Navigate to="/" />}
         />
         <Route
           exact
           path="/register"
-          element={!user ? <Register /> : <Navigate to="/" />}
+          element={
+            !user ? <Register setTitle={setTitle} /> : <Navigate to="/" />
+          }
         />
         <Route exact path="/" element={<PrivateRoute />}>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/:item" element={<ItemMain />} />
+          <Route exact path="/" element={<Home setTitle={setTitle} />} />
+          <Route path="/:item" element={<ItemMain setTitle={setTitle} />} />
 
-          <Route path="/list/:item/:type" element={<ItemList />} />
-          <Route path="/:back/:type/:item/:id" element={<ItemEdit />} />
-          <Route path="/:item/search" element={<ItemSearch />} />
+          <Route
+            path="/list/:item/:type"
+            element={<ItemList setTitle={setTitle} />}
+          />
+          <Route
+            path="/:back/:type/:item/:id"
+            element={<ItemEdit setTitle={setTitle} />}
+          />
+          <Route
+            path="/:item/search"
+            element={<ItemSearch setTitle={setTitle} />}
+          />
         </Route>
       </Routes>
     </AnimatePresence>

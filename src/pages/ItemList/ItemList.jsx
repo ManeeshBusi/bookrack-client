@@ -14,12 +14,15 @@ import {
 } from "../../utils/animationVariants";
 import "./itemList.scss";
 
-export default function ItemList() {
+export default function ItemList({ setTitle }) {
   const { user } = useContext(AuthContext);
 
   let { type, item } = useParams();
   const location = useLocation();
   item = item.substring(0, item.length - 1);
+
+  setTitle(`${type[0].toUpperCase() + type.slice(1).toLowerCase()} ${item}s`);
+
   const sort = ["Created", "Author", "A-Z", "Z-A", "Series", "Last Read"];
 
   const match = {

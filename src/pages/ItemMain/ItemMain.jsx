@@ -11,9 +11,10 @@ import { AuthContext } from "../../context/AuthContext";
 import { axiosInstance } from "../../utils/config";
 import Main from "../Main/Main";
 
-export default function ItemMain() {
+export default function ItemMain({ setTitle }) {
   const { user } = useContext(AuthContext);
   const { item } = useParams();
+  setTitle(item[0].toUpperCase() + item.slice(1).toLowerCase());
   let itemx = item.substring(0, item.length - 1);
   const [complete, setComplete] = useState([]);
   const [pending, setPending] = useState([]);

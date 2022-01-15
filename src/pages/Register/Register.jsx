@@ -13,7 +13,8 @@ import {
 import { axiosInstance } from "../../utils/config";
 import "./register.scss";
 
-export default function Register() {
+export default function Register({ setTitle }) {
+  setTitle("BookRack | Register");
   const {
     register,
     handleSubmit,

@@ -8,10 +8,10 @@ import "./itemSearch.scss";
 import { cardChild1, cards } from "../../utils/animationVariants";
 import Loader from "../../components/Loader/Loader";
 
-export default function ItemSearch() {
+export default function ItemSearch({ setTitle }) {
   let { item } = useParams();
   item = item.substring(0, item.length - 1);
-
+  setTitle(`Search ${item}`);
   const inputRef = useRef();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);

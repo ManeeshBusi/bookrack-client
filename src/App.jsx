@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./app.scss";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
@@ -19,13 +19,18 @@ const theme = createTheme({
 
 function App() {
   const { user } = useContext(AuthContext);
+  const [title, setTitle] = useState("Home | BookRack");
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <Router>
           {user && <Topbar />}
-          <AnimatedRoutes user={user} />
+          <AnimatedRoutes user={user} setTitle={setTitle} />
         </Router>
       </ThemeProvider>
     </>

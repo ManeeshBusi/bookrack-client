@@ -21,7 +21,7 @@ import {
 import { axiosInstance } from "../../utils/config";
 import Toaster from "../../components/Toaster/Toaster";
 
-export default function ItemEdit() {
+export default function ItemEdit({ setTitle }) {
   let { type, item, back } = useParams();
   const location = useLocation();
   let itemn = item.substring(0, item.length - 1);
@@ -32,6 +32,8 @@ export default function ItemEdit() {
     book = location.state.book ? location.state.book : book;
     from = location.state.from ? location.state.from : from;
   }
+
+  setTitle(type === "edit" ? book.title : `Add ${itemn}`);
 
   const { user } = useContext(AuthContext);
   const [saved, setSaved] = useState(false);

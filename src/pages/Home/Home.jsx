@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import "./home.scss";
 import { cardChild3, cardChild4, cards } from "../../utils/animationVariants";
 
-export default function Home() {
+export default function Home({ setTitle }) {
   const { user } = useContext(AuthContext);
-
+  setTitle("Home | BookRack");
   const [loading, setLoading] = useState(false);
   const [books, setBooks] = useState([]);
   const [comics, setComics] = useState([]);

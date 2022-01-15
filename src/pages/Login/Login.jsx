@@ -13,8 +13,9 @@ import {
 } from "../../utils/animationVariants";
 import "./login.scss";
 
-export default function Login() {
+export default function Login({ setTitle }) {
   const location = useLocation();
+  setTitle("BookRack | Login");
   // let location = { state: "saved" };
   const {
     register,
