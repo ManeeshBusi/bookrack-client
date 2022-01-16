@@ -119,6 +119,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    flex-direction: column;
   }
 
   .error {
@@ -178,10 +179,38 @@
     }
   }
 }
+
+.test {
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  span {
+    font-size: 0.8rem;
+  }
+
+  .credentials {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+}
 @media (max-width: 600px) {
   .login {
     &Container {
       width: 90%;
     }
+  }
+
+  .test {
+    justify-content: center;
+    align-items: center;
+  }
+  .credentials {
+    align-items: center;
   }
 }

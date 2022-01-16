@@ -61,7 +61,7 @@ export default function Register({ setTitle }) {
               onSubmit(data);
             })}
           >
-            {pages === 0 && (
+            {/* {pages === 0 && (
               <>
                 <input
                   {...register("firstname", {
@@ -82,65 +82,59 @@ export default function Register({ setTitle }) {
 
                 <span className="error">{errors.lastname?.message}</span>
               </>
-            )}
-            {pages === 1 && (
-              <>
-                <input
-                  {...register("email", {
-                    required: "Email is required",
-                  })}
-                  placeholder="Email"
-                  type="email"
-                />
+            )} */}
 
-                <span className="error">{errors.email?.message}</span>
-                <input
-                  {...register("username", {
-                    required: "Username is required",
-                    minLength: 4,
-                  })}
-                  placeholder="Username"
-                  type="text"
-                />
+            <input
+              {...register("email", {
+                required: "Email is required",
+              })}
+              placeholder="Email"
+              type="email"
+            />
 
-                <span className="error">{errors.username?.message}</span>
-              </>
-            )}
-            {pages === 2 && (
-              <>
-                <input
-                  {...register("password", {
-                    required: "Password is required",
-                    minLength: {
-                      value: 8,
-                      message: "Password should be more than 8 characters",
-                    },
-                    pattern: {
-                      value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/,
-                      message:
-                        "Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number",
-                    },
-                  })}
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                />
+            <span className="error">{errors.email?.message}</span>
+            <input
+              {...register("username", {
+                required: "Username is required",
+                minLength: 4,
+              })}
+              placeholder="Username"
+              type="text"
+            />
 
-                <span className="error">{errors.password?.message}</span>
-                <input
-                  {...register("confirmpassword", {
-                    validate: (value) =>
-                      value === password.current ||
-                      "The passwords do not match",
-                  })}
-                  placeholder="Confirm Password"
-                  type="password"
-                />
+            <span className="error">{errors.username?.message}</span>
 
-                <span className="error">{errors.confirmpassword?.message}</span>
-              </>
-            )}
-            {pages !== 0 && (
+            <input
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 8,
+                  message: "Password should be more than 8 characters",
+                },
+                pattern: {
+                  value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/,
+                  message:
+                    "Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number",
+                },
+              })}
+              name="password"
+              placeholder="Password"
+              type="password"
+            />
+
+            <span className="error">{errors.password?.message}</span>
+            <input
+              {...register("confirmpassword", {
+                validate: (value) =>
+                  value === password.current || "The passwords do not match",
+              })}
+              placeholder="Confirm Password"
+              type="password"
+            />
+
+            <span className="error">{errors.confirmpassword?.message}</span>
+
+            {/* {pages !== 0 && (
               <motion.button
                 variants={btn1}
                 whileHover="hover"
@@ -159,19 +153,16 @@ export default function Register({ setTitle }) {
               >
                 next
               </motion.button>
-            )}
-            {pages === 2 && (
-              <>
-                <motion.button
-                  variants={btn1}
-                  whileHover="hover"
-                  whileTap="click"
-                  type="submit"
-                >
-                  REGISTER
-                </motion.button>
-              </>
-            )}
+            )} */}
+
+            <motion.button
+              variants={btn1}
+              whileHover="hover"
+              whileTap="click"
+              type="submit"
+            >
+              REGISTER
+            </motion.button>
           </form>
         </motion.div>
 

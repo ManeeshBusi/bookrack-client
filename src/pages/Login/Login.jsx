@@ -120,6 +120,15 @@ export default function Login({ setTitle }) {
           </div>
         </motion.div>
       </motion.div>
+      <div className="test">
+        <span>
+          If you want to poke around here's a test account you can use:
+        </span>
+        <div className="credentials">
+          <span>Username: admin</span>
+          <span>Password: qwer!123</span>
+        </div>
+      </div>
     </div>
   );
 }
