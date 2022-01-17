@@ -16,11 +16,20 @@ export default function Carousel(props) {
   const handleClick = (direction) => {
     let dist = carouselRef.current.getBoundingClientRect().x;
 
+    // translateX(calc(10px - 4rem))
+    console.log(window.innerWidth);
+    let r = 0;
+    if (window.innerWidth < 600) {
+      r = 18;
+    } else {
+      r = 40;
+    }
+
     if (direction === "left") {
-      carouselRef.current.style.transform = `translateX(${dist + 300}px)`;
+      carouselRef.current.style.transform = `translateX(calc(${dist}px + 8rem))`;
     }
     if (direction === "right") {
-      carouselRef.current.style.transform = `translateX(${dist - 300}px)`;
+      carouselRef.current.style.transform = `translateX(calc(${dist}px - ${r}rem))`;
     }
   };
 

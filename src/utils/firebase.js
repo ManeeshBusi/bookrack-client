@@ -12,5 +12,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app, "gs://bookrack-mb99.appspot.com");
-console.log(process.env.REACT_APP_FB_ID);
 export default storage;

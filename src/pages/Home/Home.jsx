@@ -37,12 +37,15 @@ export default function Home({ setTitle }) {
         <div className="homeLeft card"></div>
         <div className="homeRight card"></div>
       </div> */}
-      <a href="https://storyset.com/education" style={{ opacity: "0" }}>
+      <a
+        href="https://storyset.com/education"
+        style={{ opacity: "0", position: "absolute", display: "none" }}
+      >
         Education illustrations by Storyset
       </a>
       <a
         href="https://www.vecteezy.com/free-vector/quotation-mark"
-        style={{ opacity: "0" }}
+        style={{ opacity: "0", position: "absolute", display: "none" }}
       >
         Quotation Mark Vectors by Vecteezy
       </a>
