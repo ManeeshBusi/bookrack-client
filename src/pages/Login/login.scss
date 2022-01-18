@@ -29,6 +29,7 @@
       font-size: 2rem;
       font-family: "Urbanist", sans-serif;
       font-weight: 500;
+      color: white;
     }
   }
 
@@ -73,6 +74,8 @@
       background-size: 100% 100%;
       margin-top: 3rem;
       margin-bottom: 2rem;
+      // transition: all 0.8s ease;
+      // transition-delay: 0.5s;
     }
   }
 
@@ -120,6 +123,9 @@
     align-items: center;
     margin-top: 2rem;
     flex-direction: column;
+    span {
+      color: white;
+    }
   }
 
   .error {
@@ -161,7 +167,9 @@
   }
 
   .btn-text {
-    color: white;
+    span {
+      color: white;
+    }
     flex-grow: 1;
     font-size: 1rem;
     letter-spacing: 0.2px;
@@ -173,7 +181,8 @@
 
 .signupLink {
   u {
-    // color: green;
+    // color: green;color: white;
+    color: white;
     &:hover {
       color: #4285f4;
     }
@@ -182,24 +191,32 @@
 
 .test {
   position: absolute;
-  bottom: 1%;
+  bottom: 1.2%;
   right: 1%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0.8rem;
   margin-top: 0.5rem;
+  border: 2px solid grey;
+  border-radius: 15px;
   span {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    color: white;
+    b {
+      color: white;
+    }
   }
 
   .credentials {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     flex-direction: column;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .login {
     &Container {
       width: 90%;

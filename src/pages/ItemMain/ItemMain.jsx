@@ -84,7 +84,7 @@ export default function ItemMain({ setTitle }) {
     <>
       <Main>
         {loading ? (
-          <Loader />
+          <Loader center={true} />
         ) : (
           <>
             <Current

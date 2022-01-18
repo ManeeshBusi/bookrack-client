@@ -6,16 +6,14 @@ import { AuthContext } from "../../context/AuthContext";
 import { axiosInstance } from "../../utils/config";
 import Main from "../Main/Main";
 import { motion } from "framer-motion";
-import {
-  cardChild1,
-  cardChild3,
-  cardChild4,
-  cards,
-} from "../../utils/animationVariants";
+import { cardChild1, cardChild3, cards } from "../../utils/animationVariants";
+import Loader from "../../components/Loader/Loader";
 import "./itemList.scss";
 
 export default function ItemList({ setTitle }) {
   const { user } = useContext(AuthContext);
+
+  const [loading, setLoading] = useState(true);
 
   let { type, item } = useParams();
   const location = useLocation();
@@ -45,6 +43,7 @@ export default function ItemList({ setTitle }) {
 
   useEffect(() => {
     const getBooks = async () => {
+      setLoading(true);
       try {
         let res = [];
         if (type === "complete") {
@@ -77,6 +76,8 @@ export default function ItemList({ setTitle }) {
             ? setBooks(res.data[0].books)
             : setBooks(res.data[0].comics);
         }
+
+        setLoading(false);
       } catch (e) {
         console.log(e);
       }
@@ -88,7 +89,9 @@ export default function ItemList({ setTitle }) {
   const [input, setInput] = useState("");
   const handleSearch = (e) => {
     e.preventDefault();
+    setLoading(true);
     setInput(e.target.value);
+    setLoading(false);
   };
 
   if (input.length > 0) {
@@ -152,34 +155,38 @@ export default function ItemList({ setTitle }) {
           </motion.div>
 
           <div className="booksListContent">
-            <motion.div
-              className="booksListContentWrapper"
-              variants={cardChild3}
-            >
-              {books.map((book) => (
-                <Link
-                  to={`/${type}/edit/${item}s/${book._id}`}
-                  state={{ book: book, from: location.pathname }}
-                  style={{
-                    textDecoration: "none",
-                    border: book.own ? "none" : "2px solid #ec5d57",
-                  }}
-                  className="booksListItem"
-                  key={book._id}
-                >
-                  <div>
-                    <div className="booksListImgContainer">
-                      <img src={book.img} alt={book.title} />
-                    </div>
+            {loading ? (
+              <Loader />
+            ) : (
+              <motion.div
+                className="booksListContentWrapper"
+                variants={cardChild3}
+              >
+                {books.map((book) => (
+                  <Link
+                    to={`/${type}/edit/${item}s/${book._id}`}
+                    state={{ book: book, from: location.pathname }}
+                    style={{
+                      textDecoration: "none",
+                      border: book.own ? "none" : "2px solid #ec5d57",
+                    }}
+                    className="booksListItem"
+                    key={book._id}
+                  >
+                    <div>
+                      <div className="booksListImgContainer">
+                        <img src={book.img} alt={book.title} />
+                      </div>
 
-                    <div className="booksListDetails">
-                      <span className="booksListTitle">{book.title}</span>
-                      <span className="booksListAuthor">{book.author}</span>
+                      <div className="booksListDetails">
+                        <span className="booksListTitle">{book.title}</span>
+                        <span className="booksListAuthor">{book.author}</span>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
-            </motion.div>
+                  </Link>
+                ))}
+              </motion.div>
+            )}
           </div>
         </div>
       </motion.div>

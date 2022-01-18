@@ -169,3 +169,11 @@
     align-items: center;
   }
 }
+
+@media (max-width: 720px) {
+  .register {
+    &Container {
+      width: 90%;
+    }
+  }
+}

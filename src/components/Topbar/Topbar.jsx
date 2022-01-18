@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { Link, NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import { btn1, cardChild1, topMenu } from "../../utils/animationVariants";
 import { AuthContext } from "../../context/AuthContext";
 import { logout } from "../../context/apiCalls";
 import { CloseOutlined, Menu } from "@material-ui/icons";
 import "./topbar.scss";
 import Modal from "../Modal/Modal";
-import Loader from "../Loader/Loader";
 
 export default function Topbar() {
   const [show, setShow] = useState(false);
@@ -34,9 +33,11 @@ export default function Topbar() {
             </span>
           </div>
           <div className="topbarLogo">
-            <span>
-              book<span>rack</span>
-            </span>
+            <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
+              <span>
+                book<span>rack</span>
+              </span>
+            </Link>
           </div>
 
           <div className={open ? "topbarNav open" : "topbarNav"}>

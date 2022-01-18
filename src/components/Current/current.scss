@@ -9,7 +9,7 @@
 
   span {
     // font-size: 48px;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     span {
       color: $accent;
       font-weight: 500;
@@ -50,6 +50,14 @@
       &:hover {
         color: white;
       }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .current {
+    span {
+      font-size: 2rem;
     }
   }
 }

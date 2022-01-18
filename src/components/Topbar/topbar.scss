@@ -104,7 +104,7 @@
   }
 
   &Account {
-    flex: 1.18;
+    flex: 1;
     display: flex;
     justify-content: flex-end;
   }
@@ -183,7 +183,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .topbar {
     &Nav {
       position: absolute;
