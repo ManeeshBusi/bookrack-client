@@ -36,7 +36,6 @@ export default function Login({ setTitle }) {
     }, 2000);
   };
 
-  setLoading(false);
   return (
     <div className="login">
       {location.state === "saved" && (
