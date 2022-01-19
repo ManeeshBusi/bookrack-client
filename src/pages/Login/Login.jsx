@@ -32,11 +32,11 @@ export default function Login({ setTitle }) {
     setLoading(true);
     setTimeout(() => {
       login(data, dispatch);
-      setLoading(false);
       console.log(error);
     }, 2000);
   };
 
+  setLoading(false);
   return (
     <div className="login">
       {location.state === "saved" && (
