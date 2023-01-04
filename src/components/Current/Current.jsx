@@ -169,7 +169,7 @@ export default function Current(props) {
       variants={cards}
       initial="hidden"
       animate="visible"
-      exit="exit"
+      // exit="exit"
     >
       <div className="currentWrapper">
         <div

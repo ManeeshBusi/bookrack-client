@@ -39,10 +39,13 @@ export default function Carousel(props) {
       variants={cards}
       initial="hidden"
       animate="visible"
-      exit="exit"
+      // exit="exit"
     >
       <div className="carouselContainer">
-        <motion.div className="carouselHeadContainer" variants={cardChild3}>
+        <motion.div
+          className="carouselHeadContainer"
+          // variants={cardChild3}
+        >
           <div className="carouselHead">
             <Link
               to={
@@ -70,7 +73,10 @@ export default function Carousel(props) {
           </div>
         </motion.div>
 
-        <motion.div className="carouselContent" variants={cardChild2}>
+        <motion.div
+          className="carouselContent"
+          // variants={cardChild2}
+        >
           {props.books.length > 0 ? (
             <>
               <ArrowBackIosOutlined

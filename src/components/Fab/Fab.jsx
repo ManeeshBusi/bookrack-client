@@ -54,7 +54,7 @@ export default function Fab(props) {
         {/* <i className="fa-solid fa-plus"></i> */}
         <Add className="fabIcon" />
       </div>
-
+      {/* 
       <motion.ul
         className="fabMenu"
         variants={fabMen}
@@ -93,7 +93,7 @@ export default function Fab(props) {
           </Link>
           <span className="fabItemText">Search {props.type}</span>
         </motion.li>
-      </motion.ul>
+      </motion.ul> */}
     </div>
   );
 }
