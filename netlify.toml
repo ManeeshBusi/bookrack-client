@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/*"
+  to = "https://bookrack-api.herokuapp.com/api/ :splat"
+  status = 200
+ 
+ 
