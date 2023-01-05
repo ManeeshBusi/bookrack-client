@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/*"
-  to = "https://bookrack-api.herokuapp.com/api/ :splat"
+  to = "https://bookrack-api.up.railway.app/api/ :splat"
   status = 200
  
  
