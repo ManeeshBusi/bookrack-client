@@ -178,7 +178,7 @@ export default function ItemEdit({ setTitle }) {
   };
 
   return (
-    <>
+    <div>
       <Main>
         <motion.div
           className="editBook card"
@@ -390,6 +390,6 @@ export default function ItemEdit({ setTitle }) {
         </motion.div>
         {saved && <Toaster msg={msg} type={del ? "delete" : ""} />}
       </Main>
-    </>
+    </div>
   );
 }

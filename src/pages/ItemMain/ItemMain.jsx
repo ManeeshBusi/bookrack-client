@@ -1,3 +1,4 @@
+import { Add } from "@material-ui/icons";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -81,12 +82,12 @@ export default function ItemMain({ setTitle }) {
   }, []);
 
   return (
-    <>
+    <div>
       <Main>
         {loading ? (
           <Loader center={true} />
         ) : (
-          <>
+          <div>
             <Current
               complete={complete.length}
               pending={pending.length}
@@ -96,10 +97,14 @@ export default function ItemMain({ setTitle }) {
             />
             <Carousel type="completed" books={complete} item={item} />
             <Carousel type="pending" books={pending} item={item} />
-          </>
+          </div>
         )}
       </Main>
-      <Fab type={`${itemx}`} />
-    </>
+      {loading ? <div></div> : <Fab type={`${itemx}`} />}
+      {/* <div style={{ backgroundColor: "blue", height: "60px", width: "60px" }}>
+        <Add className="fabIcon" />
+        {itemx}
+      </div> */}
+    </div>
   );
 }

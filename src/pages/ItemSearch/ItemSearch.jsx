@@ -109,7 +109,7 @@ export default function ItemSearch({ setTitle }) {
             {loading ? (
               <Loader />
             ) : (
-              <>
+              <div>
                 <div className="searchBookContentWrapper">
                   {books.map((book) => (
                     <motion.div
@@ -163,7 +163,7 @@ export default function ItemSearch({ setTitle }) {
                     </motion.div>
                   ))}
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>

@@ -1,10 +1,19 @@
 @import "../../app.scss";
 
-.fab {
+.circle {
+  // background-color: blue;
   position: fixed;
   bottom: 30px;
   right: 30px;
   z-index: 999;
+}
+.fab {
+  &Btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+  }
 
   &IconContainer {
     width: 60px;
